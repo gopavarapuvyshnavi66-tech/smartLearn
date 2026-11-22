@@ -78,6 +78,14 @@ It provides separate dashboards and functionalities for students and faculty.
 
 Alternatively, open the project folder in VS Code and use the Live Server extension.
 
+## 📸 Application Preview
+
+### SmartLearn – Main Login Page
+
+The main login page provides separate access for students and faculty.
+
+![SmartLearn Main Login Page](ss/home_page.png)
+
 ## 🔮 Future Enhancements
 
 - Integration with real AI/ML models for intelligent recommendations.
