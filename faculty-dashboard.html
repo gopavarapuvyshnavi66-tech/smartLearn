@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartLearn - Faculty Dashboard</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Faculty Dashboard CSS -->
+    <link rel="stylesheet" href="faculty-dashboard.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo-area">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+                <h2>SmartLearn</h2>
+                <span>Faculty Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="#dashboard"
+               class="nav-item active"
+               data-section="dashboard">
+
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="#students"
+               class="nav-item"
+               data-section="students">
+
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Students</span>
+
+            </a>
+
+
+            <a href="#analytics"
+               class="nav-item"
+               data-section="analytics">
+
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Analytics</span>
+
+            </a>
+
+
+            <a href="#weak-areas"
+               class="nav-item"
+               data-section="weak-areas">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Weak Areas</span>
+
+            </a>
+
+
+            <a href="#reports"
+               class="nav-item"
+               data-section="reports">
+
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Progress Reports</span>
+
+            </a>
+
+
+            <a href="#profile"
+               class="nav-item"
+               data-section="profile">
+
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#"
+               class="nav-item logout"
+               onclick="logoutUser(event)">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Mobile Overlay -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+
+                    <h1>Faculty Dashboard</h1>
+
+                    <p>
+                        Monitor, analyze and improve student learning.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button class="notification-btn">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="faculty-mini-profile">
+
+                    <div class="avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div>
+
+                        <strong id="facultyName">
+                            Faculty
+                        </strong>
+
+                        <small id="facultyEmail">
+                            Faculty Account
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             DASHBOARD SECTION
+        ================================================== -->
+
+        <section
+            id="dashboard"
+            class="dashboard-section active"
+        >
+
+            <!-- Welcome Banner -->
+
+            <div class="welcome-banner">
+
+                <div>
+
+                    <span class="welcome-label">
+                        FACULTY PORTAL
+                    </span>
+
+                    <h2>
+                        Welcome back, Faculty! 👋
+                    </h2>
+
+                    <p>
+                        Track student performance, identify learning
+                        gaps and use AI-powered insights to support
+                        better learning outcomes.
+                    </p>
+
+                </div>
+
+                <div class="welcome-icon">
+
+                    <i class="fa-solid fa-chalkboard-user"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Total Students</span>
+
+                        <h3>128</h3>
+
+                        <small>
+                            <i class="fa-solid fa-arrow-up"></i>
+                            8% this month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Active Students</span>
+
+                        <h3>104</h3>
+
+                        <small>
+                            81% active
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Average Progress</span>
+
+                        <h3>74%</h3>
+
+                        <small>
+                            <i class="fa-solid fa-arrow-up"></i>
+                            5% improvement
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Need Attention</span>
+
+                        <h3>18</h3>
+
+                        <small>
+                            Students at risk
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Main Dashboard Grid -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- Student Performance -->
+
+                <div class="card performance-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>Student Performance</h3>
+
+                            <p>
+                                Overall learning progress
+                            </p>
+
+                        </div>
+
+                        <select>
+                            <option>This Week</option>
+                            <option>This Month</option>
+                            <option>This Semester</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="performance-content">
+
+                        <div class="progress-circle">
+
+                            <div class="circle-inner">
+
+                                <strong>74%</strong>
+
+                                <span>Average</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="performance-details">
+
+                            <div class="performance-item">
+
+                                <span>
+                                    Excellent
+                                </span>
+
+                                <strong>32 students</strong>
+
+                            </div>
+
+
+                            <div class="performance-item">
+
+                                <span>
+                                    Good
+                                </span>
+
+                                <strong>56 students</strong>
+
+                            </div>
+
+
+                            <div class="performance-item">
+
+                                <span>
+                                    Needs Improvement
+                                </span>
+
+                                <strong>22 students</strong>
+
+                            </div>
+
+
+                            <div class="performance-item">
+
+                                <span>
+                                    At Risk
+                                </span>
+
+                                <strong>18 students</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI Insights -->
+
+                <div class="card ai-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="ai-label">
+                                AI POWERED
+                            </span>
+
+                            <h3>Smart Insights</h3>
+
+                        </div>
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    </div>
+
+
+                    <div class="ai-insight">
+
+                        <div class="insight-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Learning Gap Detected
+                            </strong>
+
+                            <p>
+                                18 students are struggling with
+                                recursion concepts.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-insight">
+
+                        <div class="insight-icon">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Progress Improvement
+                            </strong>
+
+                            <p>
+                                Average student performance improved
+                                by 5% this month.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-btn"
+                        onclick="showToast('Opening AI analysis...')"
+                    >
+                        View AI Analysis
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Weak Areas + Recent Activity -->
+
+            <div class="dashboard-grid second-grid">
+
+
+                <!-- Weak Areas -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>Common Weak Areas</h3>
+
+                            <p>
+                                Topics requiring attention
+                            </p>
+
+                        </div>
+
+                        <button class="text-btn"
+                            onclick="showToast('Opening weak areas...')">
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <div class="weak-area-list">
+
+                        <div class="weak-area">
+
+                            <div class="weak-info">
+
+                                <span>
+                                    Recursion
+                                </span>
+
+                                <strong>42%</strong>
+
+                            </div>
+
+                            <div class="progress-bar">
+                                <span style="width: 42%;"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="weak-area">
+
+                            <div class="weak-info">
+
+                                <span>
+                                    Graph Algorithms
+                                </span>
+
+                                <strong>51%</strong>
+
+                            </div>
+
+                            <div class="progress-bar">
+                                <span style="width: 51%;"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="weak-area">
+
+                            <div class="weak-info">
+
+                                <span>
+                                    Dynamic Programming
+                                </span>
+
+                                <strong>58%</strong>
+
+                            </div>
+
+                            <div class="progress-bar">
+                                <span style="width: 58%;"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="weak-area">
+
+                            <div class="weak-info">
+
+                                <span>
+                                    SQL Queries
+                                </span>
+
+                                <strong>64%</strong>
+
+                            </div>
+
+                            <div class="progress-bar">
+                                <span style="width: 64%;"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Recent Activity -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3>Recent Activity</h3>
+
+                            <p>
+                                Latest student activity
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon blue">
+                                <i class="fa-solid fa-file-circle-check"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Ananya completed an assessment
+                                </strong>
+
+                                <span>
+                                    10 minutes ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon green">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Rahul completed a lesson
+                                </strong>
+
+                                <span>
+                                    35 minutes ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon orange">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    3 students need attention
+                                </strong>
+
+                                <span>
+                                    1 hour ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Recent Students -->
+
+            <div class="card recent-students-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>Recent Students</h3>
+
+                        <p>
+                            Monitor individual student progress
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="primary-btn small"
+                        onclick="navigateToSection('students')"
+                    >
+                        View All Students
+                    </button>
+
+                </div>
+
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="studentSearch"
+                        placeholder="Search students..."
+                    >
+
+                </div>
+
+
+                <div class="student-table-wrapper">
+
+                    <table class="student-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Student</th>
+                                <th>Progress</th>
+                                <th>Weak Area</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr class="student-row">
+
+                                <td>
+
+                                    <div class="student-info">
+
+                                        <div class="student-avatar">
+                                            A
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Ananya
+                                            </strong>
+
+                                            <span>
+                                                CSE - 3rd Year
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="table-progress">
+
+                                        <span>82%</span>
+
+                                        <div>
+                                            <span
+                                                style="width:82%">
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    Recursion
+                                </td>
+
+
+                                <td>
+                                    <span class="status good">
+                                        On Track
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="view-btn"
+                                        onclick="viewStudent('Ananya')"
+                                    >
+                                        View
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr class="student-row">
+
+                                <td>
+
+                                    <div class="student-info">
+
+                                        <div class="student-avatar">
+                                            R
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Rahul
+                                            </strong>
+
+                                            <span>
+                                                CSE - 3rd Year
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="table-progress">
+
+                                        <span>67%</span>
+
+                                        <div>
+                                            <span
+                                                style="width:67%">
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    Graphs
+                                </td>
+
+
+                                <td>
+                                    <span class="status average">
+                                        Improving
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="view-btn"
+                                        onclick="viewStudent('Rahul')"
+                                    >
+                                        View
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr class="student-row">
+
+                                <td>
+
+                                    <div class="student-info">
+
+                                        <div class="student-avatar">
+                                            P
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Priya
+                                            </strong>
+
+                                            <span>
+                                                CSE - 3rd Year
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="table-progress">
+
+                                        <span>48%</span>
+
+                                        <div>
+                                            <span
+                                                style="width:48%">
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    Dynamic Programming
+                                </td>
+
+
+                                <td>
+                                    <span class="status risk">
+                                        Needs Attention
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <button
+                                        class="view-btn"
+                                        onclick="viewStudent('Priya')"
+                                    >
+                                        View
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             STUDENTS SECTION
+        ================================================== -->
+
+        <section
+            id="students"
+            class="dashboard-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Students</h2>
+
+                    <p>
+                        View and monitor all students.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="exportData()"
+                >
+                    <i class="fa-solid fa-download"></i>
+                    Export Data
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="student-management">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            placeholder="Search students..."
+                        >
+
+                    </div>
+
+
+                    <select class="filter-select">
+
+                        <option>All Students</option>
+                        <option>On Track</option>
+                        <option>Improving</option>
+                        <option>Needs Attention</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="empty-state">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <h3>Student Management</h3>
+
+                    <p>
+                        Detailed student management will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ANALYTICS SECTION
+        ================================================== -->
+
+        <section
+            id="analytics"
+            class="dashboard-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Analytics</h2>
+
+                    <p>
+                        Understand overall student performance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Average Score</span>
+                        <h3>74%</h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Improvement</span>
+                        <h3>5%</h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Lessons Completed</span>
+                        <h3>846</h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card analytics-placeholder">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <h3>Performance Analytics</h3>
+
+                <p>
+                    Interactive performance charts can be integrated
+                    here using student assessment data.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WEAK AREAS SECTION
+        ================================================== -->
+
+        <section
+            id="weak-areas"
+            class="dashboard-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Weak Areas</h2>
+
+                    <p>
+                        Identify topics where students need additional support.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="weak-cards">
+
+                <div class="topic-card">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    <h3>Recursion</h3>
+
+                    <strong>42%</strong>
+
+                    <p>
+                        Average understanding
+                    </p>
+
+                    <div class="progress-bar">
+                        <span style="width:42%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <i class="fa-solid fa-diagram-project"></i>
+
+                    <h3>Graph Algorithms</h3>
+
+                    <strong>51%</strong>
+
+                    <p>
+                        Average understanding
+                    </p>
+
+                    <div class="progress-bar">
+                        <span style="width:51%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    <h3>Dynamic Programming</h3>
+
+                    <strong>58%</strong>
+
+                    <p>
+                        Average understanding
+                    </p>
+
+                    <div class="progress-bar">
+                        <span style="width:58%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REPORTS SECTION
+        ================================================== -->
+
+        <section
+            id="reports"
+            class="dashboard-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Progress Reports</h2>
+
+                    <p>
+                        Generate and review student progress reports.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="generateReport()"
+                >
+                    <i class="fa-solid fa-file-export"></i>
+                    Generate Report
+                </button>
+
+            </div>
+
+
+            <div class="report-cards">
+
+                <div class="report-card">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <h3>Class Performance Report</h3>
+
+                    <p>
+                        View overall class performance and learning trends.
+                    </p>
+
+                    <button
+                        class="secondary-btn"
+                        onclick="generateReport()"
+                    >
+                        Generate
+                    </button>
+
+                </div>
+
+
+                <div class="report-card">
+
+                    <i class="fa-solid fa-user-graduate"></i>
+
+                    <h3>Student Progress Report</h3>
+
+                    <p>
+                        Review individual student learning progress.
+                    </p>
+
+                    <button
+                        class="secondary-btn"
+                        onclick="generateReport()"
+                    >
+                        Generate
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROFILE SECTION
+        ================================================== -->
+
+        <section
+            id="profile"
+            class="dashboard-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Faculty Profile</h2>
+
+                    <p>
+                        View your SmartLearn account information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card profile-card">
+
+                <div class="large-avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div class="profile-details">
+
+                    <h3 id="profileFacultyName">
+                        Faculty
+                    </h3>
+
+                    <p id="profileFacultyEmail">
+                        Faculty Account
+                    </p>
+
+                    <span class="faculty-role">
+                        Faculty
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div id="toast" class="toast"></div>
+
+
+    <!-- Faculty Dashboard JS -->
+    <script src="faculty-dashboard.js"></script>
+
+</body>
+</html>

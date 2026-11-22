@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personalized Learning | SmartLearn</title>
+
+    <link rel="stylesheet" href="personalized-learning.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <script src="personalized-learning.js" defer></script>
+</head>
+
+<body>
+  
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div class="logo-text">
+            Smart<span>Learn</span>
+        </div>
+
+    </div>
+
+
+    <div class="sidebar-profile">
+
+        <div class="profile-avatar">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="profile-info">
+
+            <h4 id="sidebarName">
+                Student
+            </h4>
+
+            <span>Student</span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">
+            MAIN MENU
+        </p>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-clipboard-check"></i>
+            <span>Assessment</span>
+        </a>
+
+        <a href="Learn.html" class="nav-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Learn</span>
+        </a>
+
+        <a href="practice.html" class="nav-item">
+            <i class="fa-solid fa-dumbbell"></i>
+            <span>Practice</span>
+        </a>
+
+
+        <p class="nav-title second-title">
+            INSIGHTS
+        </p>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-brain"></i>
+            <span>AI Analysis</span>
+        </a>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>My Progress</span>
+        </a>
+
+        <a href="personalized-learning.html" class="nav-item active">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>My Learning</span>
+        </a>
+
+    </nav>
+
+
+    <!-- SETTINGS AND LOGOUT -->
+
+    <div class="sidebar-bottom">
+
+                <a
+                    href="#"
+                    class="nav-item"
+                    onclick="showToast('Settings will be available soon.'); return false;"
+                >
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+
+
+               <a
+                    href="#"
+                    class="nav-item logout-item"
+                    onclick="logoutStudent(); return false;"
+                >
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+</aside>
+
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="breadcrumb">Student / My Learning Path</p>
+        <h1>My Learning Path</h1>
+      </div>
+      <div class="profile-chip">
+        <span class="profile-avatar" id="profileAvatar">S</span>
+        <span id="profileName">Student</span>
+      </div>
+    </header>
+
+    <section class="welcome-section">
+      <div class="welcome-copy">
+        <span class="eyebrow">YOUR PERSONALIZED JOURNEY</span>
+        <h2>Learn at your own pace.</h2>
+        <p>
+          Focus on what you need most. Your learning path is based on
+          your assessment performance and areas for improvement.
+        </p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <div class="art-circle">✦</div>
+        <div class="art-book">📚</div>
+        <div class="art-star">✧</div>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Learning summary">
+      <article class="stat-card">
+        <div class="stat-icon purple">◎</div>
+        <p>Assessment Score</p>
+        <h3 id="overallScore">--</h3>
+        <span class="stat-note">Latest assessment</span>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon rose">↗</div>
+        <p>Strong Topics</p>
+        <h3 id="strongCount">0</h3>
+        <span class="stat-note">Topics you understand well</span>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon orange">◉</div>
+        <p>Topics to Improve</p>
+        <h3 id="weakCount">0</h3>
+        <span class="stat-note">Recommended for revision</span>
+      </article>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <span class="eyebrow">RECOMMENDED FOR YOU</span>
+        <h2>Your next steps</h2>
+        <p>Start with the topics that need the most attention.</p>
+      </div>
+      <span class="result-badge" id="recommendationBadge">Personalized plan</span>
+    </section>
+
+    <section id="learningPath" class="learning-grid">
+      <!-- Topic cards are added by JavaScript -->
+    </section>
+
+    <section id="emptyState" class="empty-state" hidden>
+      <div class="empty-icon">📋</div>
+      <h2>Complete your assessment first</h2>
+      <p>
+        We need your assessment results to identify your strengths
+        and recommend the right topics for you.
+      </p>
+      <a href="assessment.html" class="primary-button">
+        Take Assessment →
+      </a>
+    </section>
+
+    <section class="tip-banner">
+      <div class="tip-icon">✦</div>
+      <div>
+        <h3>A little progress every day matters!</h3>
+        <p>
+          Study one topic, practice what you learn, and review your
+          results to keep improving.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      SmartLearn · Learn Smarter. Grow Better.
+    </footer>
+  </main>
+</body>
+</html>

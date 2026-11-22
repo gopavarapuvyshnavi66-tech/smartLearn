@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Learn computer science topics with your personalized SmartLearn lessons.">
+
+    <title>Learn | SmartLearn</title>
+
+    <link rel="stylesheet" href="Learn.css">
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <script src="learn.js" defer></script>
+</head>
+<body>
+ 
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div class="logo-text">
+            Smart<span>Learn</span>
+        </div>
+
+    </div>
+
+
+    <div class="sidebar-profile">
+
+        <div class="profile-avatar">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="profile-info">
+
+            <h4 id="sidebarName">
+                Student
+            </h4>
+
+            <span>Student</span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">
+            MAIN MENU
+        </p>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-clipboard-check"></i>
+            <span>Assessment</span>
+        </a>
+
+        <a href="Learn.html" class="nav-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Learn</span>
+        </a>
+
+        <a href="practice.html" class="nav-item">
+            <i class="fa-solid fa-dumbbell"></i>
+            <span>Practice</span>
+        </a>
+
+
+        <p class="nav-title second-title">
+            INSIGHTS
+        </p>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-brain"></i>
+            <span>AI Analysis</span>
+        </a>
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>My Progress</span>
+        </a>
+
+        <a href="personalized-learning.html" class="nav-item active">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>My Learning</span>
+        </a>
+
+    </nav>
+
+
+    <!-- SETTINGS AND LOGOUT -->
+
+    <div class="sidebar-bottom">
+
+                <a
+                    href="#"
+                    class="nav-item"
+                    onclick="showToast('Settings will be available soon.'); return false;"
+                >
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item logout-item"
+                    onclick="logoutStudent(); return false;"
+                >
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+</aside>
+
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="breadcrumb">Student </p>
+        
+      </div>
+      <div class="profile-chip">
+        <span class="profile-avatar" id="profileAvatar">S</span>
+        <span id="profileName">Student</span>
+      </div>
+    </header>
+
+    <section class="welcome-section">
+      <div class="welcome-copy">
+        <span class="eyebrow">YOUR LEARNING SPACE</span>
+        <h2 id="welcomeTitle">Build your computer science skills.</h2>
+        <p id="welcomeDescription">Explore clear explanations, examples and bite-sized lessons. Learn at your own pace and track what you complete.</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <div class="art-circle">✦</div><div class="art-book">📚</div><div class="art-star">✧</div>
+      </div>
+    </section>
+
+    <section class="overview-row" aria-label="Learning progress">
+      <article class="overview-card">
+        <span class="overview-label">SELECTED SUBJECT</span>
+        <strong id="subjectName">Data Structures &amp; Algorithms</strong>
+        <span class="overview-hint" id="subjectHint">Personalized for your learning path</span>
+      </article>
+      <article class="overview-card progress-overview">
+        <div class="progress-title"><span class="overview-label">SUBJECT PROGRESS</span><strong id="progressPercent">0%</strong></div>
+        <div class="progress-track"><div class="progress-fill" id="overallProgressFill"></div></div>
+        <span class="overview-hint" id="progressText">0 of 4 lessons completed</span>
+      </article>
+    </section>
+
+    <section class="learning-layout">
+      <aside class="lesson-panel">
+        <div class="panel-heading">
+          <div><span class="eyebrow">COURSE CONTENT</span><h2>Lessons</h2></div>
+          <span class="lesson-count" id="lessonCount">4 lessons</span>
+        </div>
+        <div id="lessonList" class="lesson-list" aria-label="Course lessons"></div>
+        <div class="panel-note"><span>✦</span><p>Complete lessons in order or revisit any lesson whenever you need a refresher.</p></div>
+      </aside>
+
+      <section class="lesson-content" aria-live="polite">
+        <div class="lesson-meta">
+          <span class="module-tag" id="moduleTag">MODULE 01</span>
+          <span class="duration" id="lessonDuration">5 min read</span>
+        </div>
+        <h2 id="lessonTitle">Introduction to Data Structures</h2>
+        <p class="lesson-intro" id="lessonIntro"></p>
+        <div id="lessonBody" class="lesson-body"></div>
+        <div class="lesson-footer">
+          <button class="secondary-button" id="previousButton" type="button">← Previous</button>
+          <div class="lesson-footer-actions">
+            <button class="complete-button" id="completeButton" type="button">✓ Mark as completed</button>
+            <button class="primary-button" id="nextButton" type="button">Next lesson →</button>
+          </div>
+        </div>
+        <p class="save-message" id="saveMessage" role="status">Your lesson progress is saved on this device.</p>
+      </section>
+    </section>
+
+    <section class="next-step-banner">
+      <div class="next-icon">✎</div>
+      <div><h3>Ready to test what you learned?</h3><p>Try topic-wise questions after completing your lesson.</p></div>
+      <a class="primary-button" id="practiceLink" href="practice.html">Go to Practice →</a>
+    </section>
+
+    <footer>SmartLearn · Learn Smarter. Grow Better.</footer>
+  </main>
+</body>
+</html>

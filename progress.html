@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartLearn | Progress Tracking</title>
+
+    <link rel="stylesheet" href="progress.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div class="logo-text">
+            Smart<span>Learn</span>
+        </div>
+
+    </div>
+
+
+    <div class="sidebar-profile">
+
+        <div class="profile-avatar">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="profile-info">
+
+            <h4 id="sidebarStudentName">
+                Student
+            </h4>
+
+            <span>Student</span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">
+            MAIN MENU
+        </p>
+
+
+        <a href="student-dashboard.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a
+            href="assessment.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-clipboard-check"></i>
+            <span>Assessment</span>
+        </a>
+
+
+        <a
+            href="Learn.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-book-open"></i>
+            <span>Learn</span>
+        </a>
+
+
+        <a
+            href="practice.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-dumbbell"></i>
+            <span>Practice</span>
+        </a>
+
+
+        <p class="nav-title second-title">
+            INSIGHTS
+        </p>
+
+
+        <a
+            href="ai-analysis.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-brain"></i>
+            <span>AI Analysis</span>
+        </a>
+
+
+        <a
+            href="progress-tracking.html"
+            class="nav-item active"
+        >
+            <i class="fa-solid fa-chart-line"></i>
+            <span>My Progress</span>
+        </a>
+
+
+        <a
+            href="personalized-learning.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>My Learning</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="#"
+            class="nav-item"
+            onclick="showToast('Settings will be available soon.'); return false;"
+        >
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item logout-item"
+            onclick="logoutStudent(); return false;"
+        >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div>
+                        <p class="breadcrumb">Student / Progress Tracking</p>
+                        <h2>My Learning Progress</h2>
+                    </div>
+                </div>
+
+                <div class="profile-chip">
+                    <span class="profile-avatar" id="profileAvatar">S</span>
+                    <span id="profileName">Student</span>
+                </div>
+
+            </header>
+
+
+            <!-- PAGE INTRO -->
+            <section class="page-intro">
+
+                <div>
+                    <h1>Track Your Progress</h1>
+                    <p>
+                        Monitor your learning journey, evaluate your
+                        performance and identify your improvements.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+            <section class="summary-grid">
+
+                <div class="summary-card">
+                    <div class="card-icon purple">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+
+                    <div>
+                        <p>Overall Progress</p>
+                        <h2 id="overallProgress">0%</h2>
+                        <span>Learning completion</span>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="card-icon teal">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+
+                    <div>
+                        <p>Assessments Completed</p>
+                        <h2 id="totalAssessments">0</h2>
+                        <span>Total assessments</span>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="card-icon orange">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <div>
+                        <p>Average Score</p>
+                        <h2 id="averageScore">0%</h2>
+                        <span>Assessment performance</span>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="card-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <p>Practice Accuracy</p>
+                        <h2 id="practiceAccuracy">0%</h2>
+                        <span>Correct answers</span>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- PERFORMANCE CHART -->
+            <section class="content-grid">
+
+                <div class="content-card performance-card">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Learning Performance</h2>
+                            <p>Your assessment score history</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+
+                </div>
+
+
+                <!-- TOPIC PROGRESS -->
+                <div class="content-card topic-card">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Topic-wise Progress</h2>
+                            <p>Your performance across topics</p>
+                        </div>
+                    </div>
+
+                    <div id="topicProgressList">
+
+                        <!-- Dynamic topic progress will appear here -->
+
+                        <p class="empty-message">
+                            Complete an assessment to see your topic progress.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEARNING ACTIVITY -->
+            <section class="content-card activity-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Learning Activity</h2>
+                        <p>Your recent learning activities</p>
+                    </div>
+                </div>
+
+                <div id="learningActivity">
+
+                    <p class="empty-message">
+                        Your learning activities will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACHIEVEMENTS -->
+            <section class="content-card achievements-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Achievements</h2>
+                        <p>Celebrate your learning milestones</p>
+                    </div>
+                </div>
+
+                <div class="achievements-grid" id="achievementsList">
+
+                    <!-- Achievements will be generated dynamically -->
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="progress-tracking.js"></script>
+
+</body>
+</html>

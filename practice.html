@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLearn | Practice</title>
+
+    <link rel="stylesheet" href="practice.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    
+<aside class="sidebar" id="sidebar">
+
+    <!-- SIDEBAR LOGO -->
+    <div class="sidebar-logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div class="logo-text">
+            Smart<span>Learn</span>
+        </div>
+
+    </div>
+
+
+    <!-- SIDEBAR PROFILE -->
+    <div class="sidebar-profile">
+
+        <div class="profile-avatar">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="profile-info">
+
+            <h4 id="sidebarStudentName">
+                Student
+            </h4>
+
+            <span>Student</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- SIDEBAR NAVIGATION -->
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">
+            MAIN MENU
+        </p>
+
+        <a
+            href="student-dashboard.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a
+            href="assessment.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-clipboard-check"></i>
+            <span>Assessment</span>
+        </a>
+
+
+        <a
+            href="Learn.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-book-open"></i>
+            <span>Learn</span>
+        </a>
+
+
+        <a
+            href="practice.html"
+            class="nav-item active"
+        >
+            <i class="fa-solid fa-dumbbell"></i>
+            <span>Practice</span>
+        </a>
+
+
+        <!-- INSIGHTS -->
+        <p class="nav-title second-title">
+            INSIGHTS
+        </p>
+
+
+        <a
+            href="ai-analysis.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-brain"></i>
+            <span>AI Analysis</span>
+        </a>
+
+
+        <a
+            href="student-dashboard.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-chart-line"></i>
+            <span>My Progress</span>
+        </a>
+
+
+        <a
+            href="personalized-learning.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>My Learning</span>
+        </a>
+
+    </nav>
+
+
+    <!-- SIDEBAR BOTTOM -->
+    <div class="sidebar-bottom">
+
+        <a
+            href="#"
+            class="nav-item"
+            onclick="showToast('Settings will be available soon.'); return false;"
+        >
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item logout-item"
+            onclick="logoutStudent(); return false;"
+        >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <h2>Practice Center</h2>
+                <p>Practice, improve and master your skills.</p>
+            </div>
+
+            <div class="topbar-profile">
+                <div class="small-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <span id="topStudentName">Student</span>
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <!-- WELCOME SECTION -->
+            <section class="welcome-banner">
+
+                <div>
+                    <span class="banner-label">SMARTLEARN PRACTICE</span>
+
+                    <h1>Learn by Practicing!</h1>
+
+                    <p>
+                        Strengthen your understanding through questions,
+                        coding challenges and interactive exercises.
+                    </p>
+                </div>
+
+                <div class="banner-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+            </section>
+
+
+            <!-- STATS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <p>Questions Attempted</p>
+                        <h2 id="attemptedCount">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div>
+                        <p>Correct Answers</p>
+                        <h2 id="correctCount">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <div>
+                        <p>Overall Accuracy</p>
+                        <h2 id="accuracyCount">0%</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- PRACTICE SETUP -->
+            <section class="practice-setup card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Choose Your Practice</h2>
+                        <p>Select a subject and question type to begin.</p>
+                    </div>
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+
+                <div class="setup-grid">
+
+                    <div class="form-group">
+                        <label for="subjectSelect">Subject</label>
+
+                        <select id="subjectSelect">
+                            <option value="DSA">Data Structures & Algorithms</option>
+                            <option value="DBMS">Database Management Systems</option>
+                            <option value="OS">Operating Systems</option>
+                            <option value="CN">Computer Networks</option>
+                            <option value="OOP">Object Oriented Programming</option>
+                            <option value="SE">Software Engineering</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="typeSelect">Question Type</label>
+
+                        <select id="typeSelect">
+                            <option value="all">All Question Types</option>
+                            <option value="mcq">Multiple Choice</option>
+                            <option value="fill">Fill in the Blanks</option>
+                            <option value="code">Coding Questions</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button class="primary-btn" id="startPracticeBtn">
+                    <i class="fa-solid fa-play"></i>
+                    Start Practice
+                </button>
+
+            </section>
+
+
+            <!-- QUIZ AREA -->
+            <section class="quiz-section card" id="quizSection" hidden>
+
+                <div class="quiz-top">
+
+                    <div>
+                        <span class="question-category" id="questionCategory">
+                            DATA STRUCTURES
+                        </span>
+
+                        <h2 id="quizTitle">Practice Questions</h2>
+                    </div>
+
+                    <button class="exit-btn" id="exitPracticeBtn">
+                        <i class="fa-solid fa-xmark"></i>
+                        Exit
+                    </button>
+
+                </div>
+
+
+                <div class="quiz-progress-info">
+
+                    <span id="questionNumber">Question 1 of 10</span>
+
+                    <span id="progressPercentage">0%</span>
+
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill" id="quizProgress"></div>
+                </div>
+
+
+                <div class="question-card">
+
+                    <div class="question-type-label" id="questionTypeLabel">
+                        MULTIPLE CHOICE
+                    </div>
+
+                    <h3 id="questionText">
+                        Question appears here.
+                    </h3>
+
+                    <div id="answerArea"></div>
+
+                    <div class="feedback-box" id="feedbackBox" hidden>
+                        <h4 id="feedbackTitle"></h4>
+                        <p id="feedbackText"></p>
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-actions">
+
+                    <button class="secondary-btn" id="previousBtn" disabled>
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Previous
+                    </button>
+
+                    <button class="primary-btn" id="submitAnswerBtn">
+                        Submit Answer
+                    </button>
+
+                    <button class="primary-btn" id="nextBtn" hidden>
+                        Next Question
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESULTS -->
+            <section class="result-section card" id="resultSection" hidden>
+
+                <div class="result-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <h2>Practice Completed!</h2>
+
+                <p id="resultMessage">
+                    Great effort! Keep learning.
+                </p>
+
+                <div class="result-score">
+                    <span>Your Score</span>
+                    <h1 id="finalScore">0/0</h1>
+                </div>
+
+                <div class="result-stats">
+
+                    <div>
+                        <span>Correct</span>
+                        <strong id="finalCorrect">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Incorrect</span>
+                        <strong id="finalIncorrect">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Accuracy</span>
+                        <strong id="finalAccuracy">0%</strong>
+                    </div>
+
+                </div>
+
+                <div class="weak-topics">
+                    <h3>
+                        <i class="fa-solid fa-lightbulb"></i>
+                        Topics to Improve
+                    </h3>
+
+                    <p id="weakTopics">
+                        Keep practicing to identify improvement areas.
+                    </p>
+                </div>
+
+                <div class="result-actions">
+
+                    <button class="primary-btn" id="retryBtn">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        Practice Again
+                    </button>
+
+                    <a href="personalized-learning.html" class="secondary-link">
+                        My Learning
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRACTICE HISTORY -->
+            <section class="history-section card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Recent Practice History</h2>
+                        <p>Track your previous practice sessions.</p>
+                    </div>
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+
+                <div id="historyList" class="history-list">
+
+                    <div class="empty-history">
+                        <i class="fa-solid fa-book-open"></i>
+                        <p>No practice sessions yet.</p>
+                        <span>Complete your first practice session to see it here.</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<div class="toast" id="practiceToast"></div>
+
+<script src="practice.js" defer></script>
+
+</body>
+</html>

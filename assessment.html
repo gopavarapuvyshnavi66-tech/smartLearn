@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SmartLearn - Assessment</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <!-- Assessment CSS -->
+    <link rel="stylesheet" href="assessment.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="assessment-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div>
+                <h2>SmartLearn</h2>
+                <span>Assessment</span>
+            </div>
+
+        </div>
+
+
+        <button
+            class="back-btn"
+            onclick="goToDashboard()"
+        >
+            <i class="fa-solid fa-arrow-left"></i>
+            Dashboard
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <main class="assessment-container">
+
+
+        <!-- =================================================
+             INTRO SECTION
+        ================================================== -->
+
+        <section
+            id="introSection"
+            class="intro-section"
+        >
+
+            <div class="intro-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <h1>Personalized Learning Assessment</h1>
+
+            <p>
+                Test your knowledge and help SmartLearn understand
+                your strengths and areas that need improvement.
+            </p>
+
+
+            <div class="assessment-info">
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                    <div>
+                        <strong>10</strong>
+                        <span>Questions</span>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    <div>
+                        <strong>10 min</strong>
+                        <span>Recommended Time</span>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-chart-simple"></i>
+
+                    <div>
+                        <strong>5</strong>
+                        <span>Topics</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="start-btn"
+                onclick="startAssessment()"
+            >
+                Start Assessment
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ASSESSMENT SECTION
+        ================================================== -->
+
+        <section
+            id="assessmentSection"
+            class="assessment-section hidden"
+        >
+
+            <!-- Progress -->
+
+            <div class="progress-area">
+
+                <div class="progress-text">
+
+                    <span id="questionNumber">
+                        Question 1 of 10
+                    </span>
+
+                    <span id="progressPercentage">
+                        10%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progressFill"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Question -->
+
+            <div class="question-card">
+
+                <div class="question-topic">
+
+                    <span id="questionTopic">
+                        Arrays
+                    </span>
+
+                </div>
+
+
+                <h2 id="questionText">
+                    Question will appear here
+                </h2>
+
+
+                <div
+                    id="optionsContainer"
+                    class="options-container"
+                >
+                </div>
+
+
+                <div class="navigation-buttons">
+
+                    <button
+                        id="previousBtn"
+                        class="secondary-btn"
+                        onclick="previousQuestion()"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Previous
+                    </button>
+
+
+                    <button
+                        id="nextBtn"
+                        class="primary-btn"
+                        onclick="nextQuestion()"
+                    >
+                        Next
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+
+                    <button
+                        id="submitBtn"
+                        class="submit-btn hidden"
+                        onclick="submitAssessment()"
+                    >
+                        Submit Assessment
+                        <i class="fa-solid fa-check"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULT SECTION
+        ================================================== -->
+
+        <section
+            id="resultSection"
+            class="result-section hidden"
+        >
+
+            <div class="result-header">
+
+                <div class="result-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <h1>Assessment Completed!</h1>
+
+                <p>
+                    SmartLearn analyzed your performance.
+                </p>
+
+            </div>
+
+
+            <!-- Score -->
+
+            <div class="score-card">
+
+                <div class="score-circle">
+
+                    <span id="scorePercentage">
+                        0%
+                    </span>
+
+                    <small>Score</small>
+
+                </div>
+
+
+                <div class="score-details">
+
+                    <h2 id="resultMessage">
+                        Good effort!
+                    </h2>
+
+                    <p id="scoreText">
+                        You answered 0 out of 10 questions correctly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Topic Analysis -->
+
+            <div class="analysis-card">
+
+                <div class="section-heading">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <h2>Topic-wise Analysis</h2>
+
+                </div>
+
+
+                <div
+                    id="topicAnalysis"
+                    class="topic-analysis"
+                >
+                </div>
+
+            </div>
+
+
+            <!-- Recommendations -->
+
+            <div class="recommendation-card">
+
+                <div class="section-heading">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    <h2>SmartLearn Recommendations</h2>
+
+                </div>
+
+
+                <div id="recommendations">
+                </div>
+
+            </div>
+
+
+            <div class="result-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="retakeAssessment()"
+                >
+                    <i class="fa-solid fa-rotate"></i>
+                    Retake Assessment
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="goToDashboard()"
+                >
+                    <i class="fa-solid fa-house"></i>
+                    Back to Dashboard
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Toast -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <!-- JavaScript -->
+
+    <script src="assessment.js"></script>
+
+</body>
+
+</html>

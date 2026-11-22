@@ -1,0 +1,1435 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartLearn | Student Dashboard</title>
+
+    <link rel="stylesheet" href="student-dashboard.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <div class="logo-text">
+                    Smart<span>Learn</span>
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-profile">
+
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="profile-info">
+
+                    <h4 id="sidebarStudentName">
+                        Student
+                    </h4>
+
+                    <span>Student</span>
+
+                </div>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-title">
+                    MAIN MENU
+                </p>
+
+                <a
+                    href="#"
+                    class="nav-item active"
+                    onclick="showSection('dashboard', this); return false;"
+                >
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                    onclick="showSection('assessment', this); return false;"
+                >
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span>Assessment</span>
+                </a>
+
+
+               <a
+                   href="Learn.html"
+                   class="nav-item"
+                   >
+                   <i class="fa-solid fa-book-open"></i>
+                   <span>Learn</span>
+                </a>
+
+                <a
+                    href="practice.html"
+                    class="nav-item"
+                    
+                >
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <span>Practice</span>
+                </a>
+
+
+                <p class="nav-title second-title">
+                    INSIGHTS
+                </p>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                    onclick="showSection('analysis', this); return false;"
+                >
+                    <i class="fa-solid fa-brain"></i>
+                    <span>AI Analysis</span>
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="nav-item"
+                    
+                >
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>My Progress</span>
+                </a>
+
+
+               <a
+                   href="personalized-learning.html"
+                   class="nav-item"
+                >
+                   <i class="fa-solid fa-wand-magic-sparkles"></i>
+                   <span>My Learning</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="#"
+                    class="nav-item"
+                    onclick="showToast('Settings will be available soon.'); return false;"
+                >
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item logout-item"
+                    onclick="logoutStudent(); return false;"
+                >
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        class="menu-button"
+                        onclick="toggleSidebar()"
+                    >
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+
+                    <div class="page-heading">
+
+                        <span>STUDENT PORTAL</span>
+
+                        <h2 id="currentPageTitle">
+                            Dashboard
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <button
+                        class="icon-button notification-button"
+                        onclick="showToast('You have 2 new notifications.')"
+                    >
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-dot"></span>
+                    </button>
+
+
+                    <div class="top-profile">
+
+                        <div class="top-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div>
+
+                            <strong id="topStudentName">
+                                Student
+                            </strong>
+
+                            <span>Learner</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+
+            <div class="content-area">
+
+
+                <!-- ================= DASHBOARD ================= -->
+
+                <section
+                    id="dashboardSection"
+                    class="page-section active-section"
+                >
+
+                    <div class="welcome-banner">
+
+                        <div class="welcome-content">
+
+                            <span class="welcome-small">
+                                Welcome back 👋
+                            </span>
+
+                            <h1>
+                                Keep learning,
+                                <span id="welcomeName">
+                                    Student
+                                </span>!
+                            </h1>
+
+                            <p>
+                                Continue your personalized learning
+                                journey and improve one step at a time.
+                            </p>
+
+                            <button
+                                class="primary-btn"
+                                onclick="showSectionById('learn')"
+                            >
+                                Continue Learning
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+
+                        <div class="welcome-illustration">
+
+                            <div class="illustration-circle">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+
+                            <div class="floating-icon icon-one">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+
+                            <div class="floating-icon icon-two">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <div class="floating-icon icon-three">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="section-heading">
+
+                        <span>YOUR OVERVIEW</span>
+
+                        <h3>
+                            Learning at a glance
+                        </h3>
+
+                    </div>
+
+
+                    <div class="stats-grid">
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon progress-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+
+                            <div class="stat-details">
+
+                                <span>Overall Progress</span>
+
+                                <h2>72%</h2>
+
+                                <small>
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                    8% this week
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon course-icon">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+
+                            <div class="stat-details">
+
+                                <span>Courses</span>
+
+                                <h2>6</h2>
+
+                                <small>
+                                    3 in progress
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon practice-icon">
+                                <i class="fa-solid fa-dumbbell"></i>
+                            </div>
+
+                            <div class="stat-details">
+
+                                <span>Practice</span>
+
+                                <h2>24</h2>
+
+                                <small>
+                                    Questions solved
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon streak-icon">
+                                <i class="fa-solid fa-fire"></i>
+                            </div>
+
+                            <div class="stat-details">
+
+                                <span>Learning Streak</span>
+
+                                <h2>7 Days</h2>
+
+                                <small>
+                                    Keep it going!
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DASHBOARD LOWER AREA -->
+
+                    <div class="dashboard-grid">
+
+
+                        <!-- PROGRESS -->
+
+                        <div class="dashboard-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span>LEARNING PROGRESS</span>
+
+                                    <h3>
+                                        Your progress
+                                    </h3>
+
+                                </div>
+
+                                <button
+                                    class="text-button"
+                                    onclick="showSectionById('progress')"
+                                >
+                                    View Details
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+
+                            </div>
+
+
+                            <div class="progress-main">
+
+                                <div class="progress-circle">
+
+                                    <div class="progress-circle-inner">
+
+                                        <strong>72%</strong>
+
+                                        <span>Complete</span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="progress-info">
+
+
+                                    <div class="progress-row">
+
+                                        <div>
+
+                                            <span>
+                                                Web Development
+                                            </span>
+
+                                            <strong>85%</strong>
+
+                                        </div>
+
+                                        <div class="mini-progress">
+                                            <span style="width:85%"></span>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="progress-row">
+
+                                        <div>
+
+                                            <span>
+                                                Python
+                                            </span>
+
+                                            <strong>78%</strong>
+
+                                        </div>
+
+                                        <div class="mini-progress">
+                                            <span style="width:78%"></span>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="progress-row">
+
+                                        <div>
+
+                                            <span>
+                                                Data Structures
+                                            </span>
+
+                                            <strong>61%</strong>
+
+                                        </div>
+
+                                        <div class="mini-progress">
+                                            <span style="width:61%"></span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AI RECOMMENDATION -->
+
+                        <div class="dashboard-card recommendation-card">
+
+                            <div class="ai-header">
+
+                                <div class="ai-icon">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                </div>
+
+                                <div>
+
+                                    <span>AI RECOMMENDATION</span>
+
+                                    <h3>
+                                        Your next focus
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="recommendation-body">
+
+                                <div class="recommendation-topic">
+
+                                    <div class="topic-icon">
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
+
+                                    <div>
+
+                                        <h4>
+                                            Data Structures
+                                        </h4>
+
+                                        <p>
+                                            Arrays &amp; Linked Lists
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <p class="recommendation-text">
+
+                                    Based on your recent assessment,
+                                    practicing these topics can help
+                                    strengthen your problem-solving skills.
+
+                                </p>
+
+
+                                <button
+                                    class="primary-btn full-btn"
+                                    onclick="showSectionById('practice')"
+                                >
+                                    Start Practice
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <div class="section-heading quick-heading">
+
+                        <span>QUICK ACTIONS</span>
+
+                        <h3>
+                            What would you like to do?
+                        </h3>
+
+                    </div>
+
+
+                    <div class="quick-grid">
+
+
+                        <button
+                            class="quick-card"
+                            onclick="openAssessment()"
+                        >
+
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Take Assessment
+                                </h4>
+
+                                <p>
+                                    Check your current knowledge
+                                </p>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+                        </button>
+
+
+                        <button
+                            class="quick-card"
+                            onclick="showSectionById('learn')"
+                        >
+
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Continue Learning
+                                </h4>
+
+                                <p>
+                                    Resume your learning path
+                                </p>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+                        </button>
+
+
+                        <button
+                            class="quick-card"
+                            onclick="showSectionById('practice')"
+                        >
+
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Practice Questions
+                                </h4>
+
+                                <p>
+                                    Improve through practice
+                                </p>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= ASSESSMENT ================= -->
+
+                <section
+                    id="assessmentSection"
+                    class="page-section"
+                >
+
+                    <div class="inner-page-header">
+
+                        <div class="inner-page-icon">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+
+                        <div>
+
+                            <span>ASSESSMENT</span>
+
+                            <h1>
+                                Test your knowledge
+                            </h1>
+
+                            <p>
+                                Take an assessment to help SmartLearn
+                                understand your learning level.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-grid">
+
+
+                        <div class="feature-card">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            <h3>
+                                Basic Assessment
+                            </h3>
+
+                            <p>
+                                Test your fundamentals across
+                                different subjects.
+                            </p>
+
+                            <div class="feature-meta">
+
+                                <span>20 Questions</span>
+
+                                <span>15 Minutes</span>
+
+                            </div>
+
+                            <button
+                                class="primary-btn"
+                                onclick="showToast('Assessment module will be connected next.')"
+                            >
+                                Start Assessment
+                            </button>
+
+                        </div>
+
+
+                        <div class="feature-card">
+
+                            <i class="fa-solid fa-brain"></i>
+
+                            <h3>
+                                Skill Assessment
+                            </h3>
+
+                            <p>
+                                Identify your strengths and areas
+                                that need improvement.
+                            </p>
+
+                            <div class="feature-meta">
+
+                                <span>25 Questions</span>
+
+                                <span>20 Minutes</span>
+
+                            </div>
+
+                            <button
+                                class="primary-btn"
+                                onclick="showToast('Skill assessment will be connected next.')"
+                            >
+                                Start Assessment
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= LEARN ================= -->
+
+                <section
+                    id="learnSection"
+                    class="page-section"
+                >
+
+                    <div class="inner-page-header">
+
+                        <div class="inner-page-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <div>
+
+                            <span>LEARNING</span>
+
+                            <h1>
+                                Your learning path
+                            </h1>
+
+                            <p>
+                                Learn topics selected according to
+                                your progress and interests.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="learning-list">
+
+
+                        <div class="learning-item">
+
+                            <div class="learning-number">
+                                01
+                            </div>
+
+                            <div class="learning-info">
+
+                                <h3>
+                                    Web Development
+                                </h3>
+
+                                <p>
+                                    HTML, CSS, JavaScript &amp;
+                                    responsive design
+                                </p>
+
+                                <div class="mini-progress">
+                                    <span style="width:85%"></span>
+                                </div>
+
+                            </div>
+
+                            <strong>85%</strong>
+
+                            <button
+                                class="outline-btn"
+                                onclick="showToast('Web Development lesson opened.')"
+                            >
+                                Continue
+                            </button>
+
+                        </div>
+
+
+                        <div class="learning-item">
+
+                            <div class="learning-number">
+                                02
+                            </div>
+
+                            <div class="learning-info">
+
+                                <h3>
+                                    Python Programming
+                                </h3>
+
+                                <p>
+                                    Python fundamentals and
+                                    problem solving
+                                </p>
+
+                                <div class="mini-progress">
+                                    <span style="width:78%"></span>
+                                </div>
+
+                            </div>
+
+                            <strong>78%</strong>
+
+                            <button
+                                class="outline-btn"
+                                onclick="showToast('Python lesson opened.')"
+                            >
+                                Continue
+                            </button>
+
+                        </div>
+
+
+                        <div class="learning-item">
+
+                            <div class="learning-number">
+                                03
+                            </div>
+
+                            <div class="learning-info">
+
+                                <h3>
+                                    Data Structures
+                                </h3>
+
+                                <p>
+                                    Arrays, linked lists, stacks
+                                    and queues
+                                </p>
+
+                                <div class="mini-progress">
+                                    <span style="width:61%"></span>
+                                </div>
+
+                            </div>
+
+                            <strong>61%</strong>
+
+                            <button
+                                class="outline-btn"
+                                onclick="showToast('Data Structures lesson opened.')"
+                            >
+                                Continue
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= PRACTICE ================= -->
+
+                <section
+                    id="practiceSection"
+                    class="page-section"
+                >
+
+                    <div class="inner-page-header">
+
+                        <div class="inner-page-icon">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+
+                        <div>
+
+                            <span>PRACTICE</span>
+
+                            <h1>
+                                Improve through practice
+                            </h1>
+
+                            <p>
+                                Practice recommended topics and
+                                strengthen your weak areas.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="practice-grid">
+
+
+                        <div class="practice-card">
+
+                            <div class="practice-top">
+
+                                <i class="fa-solid fa-code"></i>
+
+                                <span class="difficulty easy">
+                                    EASY
+                                </span>
+
+                            </div>
+
+                            <h3>Arrays</h3>
+
+                            <p>
+                                Build your fundamentals with
+                                array-based problems.
+                            </p>
+
+                            <button
+                                class="primary-btn"
+                                onclick="startPractice('Arrays')"
+                            >
+                                Practice Now
+                            </button>
+
+                        </div>
+
+
+                        <div class="practice-card recommended-practice">
+
+                            <div class="recommended-label">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                AI Recommended
+                            </div>
+
+                            <div class="practice-top">
+
+                                <i class="fa-solid fa-link"></i>
+
+                                <span class="difficulty medium">
+                                    MEDIUM
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Linked Lists
+                            </h3>
+
+                            <p>
+                                Recommended based on your
+                                recent learning performance.
+                            </p>
+
+                            <button
+                                class="primary-btn"
+                                onclick="startPractice('Linked Lists')"
+                            >
+                                Practice Now
+                            </button>
+
+                        </div>
+
+
+                        <div class="practice-card">
+
+                            <div class="practice-top">
+
+                                <i class="fa-solid fa-layer-group"></i>
+
+                                <span class="difficulty medium">
+                                    MEDIUM
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Stacks &amp; Queues
+                            </h3>
+
+                            <p>
+                                Strengthen your understanding
+                                through problem solving.
+                            </p>
+
+                            <button
+                                class="primary-btn"
+                                onclick="startPractice('Stacks & Queues')"
+                            >
+                                Practice Now
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= AI ANALYSIS ================= -->
+
+                <section
+                    id="analysisSection"
+                    class="page-section"
+                >
+
+                    <div class="inner-page-header">
+
+                        <div class="inner-page-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <div>
+
+                            <span>AI ANALYSIS</span>
+
+                            <h1>
+                                Understand your learning
+                            </h1>
+
+                            <p>
+                                SmartLearn analyzes your performance
+                                to identify strengths and learning gaps.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="analysis-grid">
+
+
+                        <div class="analysis-card">
+
+                            <div class="analysis-card-header">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                <h3>
+                                    Strong Areas
+                                </h3>
+
+                            </div>
+
+
+                            <div class="analysis-topic">
+
+                                <span>
+                                    Web Development
+                                </span>
+
+                                <strong>85%</strong>
+
+                            </div>
+
+
+                            <div class="analysis-topic">
+
+                                <span>
+                                    Python
+                                </span>
+
+                                <strong>78%</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="analysis-card">
+
+                            <div class="analysis-card-header">
+
+                                <i class="fa-solid fa-circle-exclamation"></i>
+
+                                <h3>
+                                    Areas to Improve
+                                </h3>
+
+                            </div>
+
+
+                            <div class="analysis-topic">
+
+                                <span>
+                                    Data Structures
+                                </span>
+
+                                <strong>61%</strong>
+
+                            </div>
+
+
+                            <div class="analysis-topic">
+
+                                <span>
+                                    Algorithms
+                                </span>
+
+                                <strong>58%</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-insight">
+
+                        <div class="ai-insight-icon">
+
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                PERSONALIZED INSIGHT
+                            </span>
+
+                            <h3>
+                                Focus on problem solving
+                            </h3>
+
+                            <p>
+                                Your current performance suggests that
+                                additional practice with Data Structures
+                                and Algorithms may help strengthen your
+                                problem-solving skills.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= PROGRESS ================= -->
+
+                <section
+                    id="progressSection"
+                    class="page-section"
+                >
+
+                    <div class="inner-page-header">
+
+                        <div class="inner-page-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <div>
+
+                            <span>PROGRESS</span>
+
+                            <h1>
+                                Track your growth
+                            </h1>
+
+                            <p>
+                                Monitor your learning journey and
+                                see how your skills improve over time.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-overview">
+
+
+                        <div class="big-progress">
+
+                            <span>
+                                OVERALL COMPLETION
+                            </span>
+
+                            <strong>72%</strong>
+
+                            <div class="large-progress">
+
+                                <span style="width:72%"></span>
+
+                            </div>
+
+                            <p>
+                                You are making steady progress.
+                            </p>
+
+                        </div>
+
+
+                        <div class="progress-stat-box">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <strong>24</strong>
+
+                            <span>
+                                Questions Solved
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-stat-box">
+
+                            <i class="fa-solid fa-fire"></i>
+
+                            <strong>7</strong>
+
+                            <span>
+                                Day Streak
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= MY LEARNING ================= -->
+
+                <section
+                    id="recommendationsSection"
+                    class="page-section"
+                >
+
+                    <div class="inner-page-header">
+
+                        <div class="inner-page-icon">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                PERSONALIZED LEARNING
+                            </span>
+
+                            <h1>
+                                Recommended for you
+                            </h1>
+
+                            <p>
+                                Learning resources selected based on
+                                your performance and learning needs.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="recommendation-list">
+
+
+                        <div class="learning-recommendation">
+
+                            <div class="recommendation-resource-icon">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+
+                            <div>
+
+                                <span>DATA STRUCTURES</span>
+
+                                <h3>
+                                    Linked List Fundamentals
+                                </h3>
+
+                                <p>
+                                    Learn nodes, traversal, insertion
+                                    and deletion.
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="outline-btn"
+                                onclick="showToast('Learning resource opened.')"
+                            >
+                                Start
+                            </button>
+
+                        </div>
+
+
+                        <div class="learning-recommendation">
+
+                            <div class="recommendation-resource-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+
+                            <div>
+
+                                <span>PRACTICE</span>
+
+                                <h3>
+                                    Array Problem Solving
+                                </h3>
+
+                                <p>
+                                    Solve beginner-friendly array
+                                    problems to strengthen fundamentals.
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="outline-btn"
+                                onclick="showToast('Practice resource opened.')"
+                            >
+                                Start
+                            </button>
+
+                        </div>
+
+
+                        <div class="learning-recommendation">
+
+                            <div class="recommendation-resource-icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+
+                            <div>
+
+                                <span>ALGORITHMS</span>
+
+                                <h3>
+                                    Searching &amp; Sorting
+                                </h3>
+
+                                <p>
+                                    Review important searching and
+                                    sorting concepts.
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="outline-btn"
+                                onclick="showToast('Learning resource opened.')"
+                            >
+                                Start
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div
+        id="dashboardToast"
+        class="dashboard-toast"
+    ></div>
+
+
+    <script src="student-dashboard.js"></script>
+
+</body>
+
+</html>

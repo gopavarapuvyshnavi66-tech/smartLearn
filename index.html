@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartLearn | Personalized Learning</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+
+<body class="background">
+
+
+    <!-- =====================================================
+         LANDING PAGE
+    ====================================================== -->
+
+    <div class="landing-page" id="landingPage">
+
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <span>
+                    Smart<span>Learn</span>
+                </span>
+
+            </div>
+
+            <div class="nav-tagline">
+            <span>Learn Smarter.</span>
+            <span>Grow Better.</span>
+            </div>
+            
+        </nav>
+
+
+
+        <!-- HERO SECTION -->
+
+        <main class="hero">
+
+            <div class="hero-content">
+
+
+                <!-- SMALL BADGE -->
+
+                <div class="hero-badge">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    AI-Powered Personalized Learning
+
+                </div>
+
+
+
+                <!-- MAIN HEADING -->
+
+                <h1>
+
+                    Learning that
+
+                    <span>adapts to you.</span>
+
+                </h1>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <p>
+
+                    SmartLearn understands your learning needs and
+                    helps you learn at your own pace with personalized
+                    learning experiences.
+
+                </p>
+
+
+
+                <!-- ROLE TITLE -->
+
+                <h3>
+                    Choose how you want to continue
+                </h3>
+
+
+
+                <!-- ROLE CARDS -->
+
+                <div class="role-container">
+
+
+                    <!-- ================= STUDENT ================= -->
+
+                    <div
+                        class="role-card"
+                        onclick="selectRole('student')"
+                    >
+
+                        <div class="role-icon student-icon">
+
+                            <i class="fa-solid fa-user-graduate"></i>
+
+                        </div>
+
+
+                        <h2>
+                            Student
+                        </h2>
+
+
+                        <p>
+
+                            Learn at your own pace with
+                            personalized learning paths,
+                            practice and progress tracking.
+
+                        </p>
+
+
+                        <button type="button">
+
+                            Continue
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- ================= FACULTY ================= -->
+
+                    <div
+                        class="role-card"
+                        onclick="selectRole('faculty')"
+                    >
+
+                        <div class="role-icon faculty-icon">
+
+                            <i class="fa-solid fa-chalkboard-user"></i>
+
+                        </div>
+
+
+                        <h2>
+                            Faculty
+                        </h2>
+
+
+                        <p>
+
+                            Monitor student performance,
+                            identify learning gaps and
+                            support better learning outcomes.
+
+                        </p>
+
+
+                        <button type="button">
+
+                            Continue
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+
+
+        
+
+    </div>
+
+
+
+    <!-- =====================================================
+         AUTHENTICATION PAGE
+    ====================================================== -->
+
+    <div
+        class="auth-page hidden"
+        id="authPage"
+    >
+
+
+        <div class="auth-container">
+
+
+            <!-- =================================================
+                 LEFT SIDE
+            ================================================== -->
+
+            <div class="auth-left">
+
+
+                <!-- BRAND -->
+
+                <div class="auth-brand">
+
+                    <div class="logo-icon">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                    </div>
+
+
+                    <span>
+
+                        Smart<span>Learn</span>
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- WELCOME MESSAGE -->
+
+                <div class="auth-message">
+
+
+                    <div
+                        class="auth-role-icon"
+                        id="authRoleIcon"
+                    >
+
+                        <i class="fa-solid fa-user-graduate"></i>
+
+                    </div>
+
+
+                    <h1 id="authWelcome">
+
+                        Welcome, Student!
+
+                    </h1>
+
+
+                    <p id="authDescription">
+
+                        Start your personalized learning journey
+                        with SmartLearn.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- AUTH FEATURES -->
+
+                <div class="auth-features">
+
+
+                    <div>
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        <span>
+                            AI-powered learning
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        <span>
+                            Personalized learning paths
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        <span>
+                            Monitor learning progress
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT SIDE
+            ================================================== -->
+
+            <div class="auth-right">
+
+
+                <!-- BACK BUTTON -->
+
+                <button
+                    class="back-button"
+                    onclick="goHome()"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back
+
+                </button>
+
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================== -->
+
+                <div
+                    class="auth-form"
+                    id="loginForm"
+                >
+
+
+                    <h2 id="loginTitle">
+
+                        Student Login
+
+                    </h2>
+
+
+                    <p class="form-subtitle">
+
+                        Welcome back! Please enter your details.
+
+                    </p>
+
+
+
+                    <form onsubmit="loginUser(event)">
+
+
+                        <!-- EMAIL -->
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- PASSWORD -->
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+
+                            <i
+                                class="fa-solid fa-eye password-toggle"
+                                onclick="togglePassword(
+                                    'loginPassword',
+                                    this
+                                )"
+                            ></i>
+
+                        </div>
+
+
+
+                        <!-- OPTIONS -->
+
+                        <div class="form-options">
+
+
+                            <label class="remember">
+
+                                <input type="checkbox">
+
+                                Remember me
+
+                            </label>
+
+
+                            <button
+                                type="button"
+                                class="forgot-link"
+                                onclick="showForgot()"
+                            >
+
+                                Forgot Password?
+
+                            </button>
+
+
+                        </div>
+
+
+
+                        <!-- LOGIN BUTTON -->
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                        >
+
+                            Login
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- REGISTER LINK -->
+
+                    <p class="switch-form">
+
+                        Don't have an account?
+
+
+                        <button
+                            type="button"
+                            onclick="showRegister()"
+                        >
+
+                            Register
+
+                        </button>
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REGISTER FORM
+                ================================================== -->
+
+                <div
+                    class="auth-form hidden"
+                    id="registerForm"
+                >
+
+
+                    <h2 id="registerTitle">
+
+                        Create Student Account
+
+                    </h2>
+
+
+                    <p class="form-subtitle">
+
+                        Join SmartLearn and start learning smarter.
+
+                    </p>
+
+
+
+                    <form onsubmit="registerUser(event)">
+
+
+                        <!-- NAME -->
+
+                        <label for="registerName">
+                            Full Name
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-user"></i>
+
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <label for="registerEmail">
+                            Email Address
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+
+                            <input
+                                type="email"
+                                id="registerEmail"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- PASSWORD -->
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="Create a password"
+                                required
+                            >
+
+
+                            <i
+                                class="fa-solid fa-eye password-toggle"
+                                onclick="togglePassword(
+                                    'registerPassword',
+                                    this
+                                )"
+                            ></i>
+
+                        </div>
+
+
+
+                        <!-- CONFIRM PASSWORD -->
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm your password"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- REGISTER BUTTON -->
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                        >
+
+                            Create Account
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- LOGIN LINK -->
+
+                    <p class="switch-form">
+
+                        Already have an account?
+
+
+                        <button
+                            type="button"
+                            onclick="showLogin()"
+                        >
+
+                            Login
+
+                        </button>
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FORGOT PASSWORD
+                ================================================== -->
+
+                <div
+                    class="auth-form hidden"
+                    id="forgotForm"
+                >
+
+
+                    <div class="forgot-icon">
+
+                        <i class="fa-solid fa-key"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Forgot Password?
+                    </h2>
+
+
+                    <p class="form-subtitle">
+
+                        Enter your registered email and we'll help
+                        you reset your password.
+
+                    </p>
+
+
+
+                    <form onsubmit="resetPassword(event)">
+
+
+                        <label for="forgotEmail">
+                            Email Address
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+
+                            <input
+                                type="email"
+                                id="forgotEmail"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                        >
+
+                            Send Reset Link
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <p class="switch-form">
+
+                        Remember your password?
+
+
+                        <button
+                            type="button"
+                            onclick="showLogin()"
+                        >
+
+                            Back to Login
+
+                        </button>
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- TOAST MESSAGE -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
